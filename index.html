@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ICC Men's Cricket World Cup 2027 | Official Fan Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: #ffffff;
+      --bg-subtle: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f1f5f9;
+      --blue: #0047ab;
+      --blue-dark: #002d72;
+      --red: #d90429;
+      --black: #0a0a0c;
+      --text-main: #0a0a0c;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow-sm: 0 4px 14px rgba(10, 10, 12, 0.05);
+      --shadow-lg: 0 18px 40px rgba(0, 71, 171, 0.09);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .brand {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 2px solid var(--border);
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-size: 1.45rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--black);
+      text-decoration: none;
+    }
+
+    .brand span {
+      color: var(--red);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--black);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--red);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ffffff 0%, #f1f6ff 55%, #fff1f3 100%);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 7.5rem 5% 4.5rem;
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, rgba(0, 71, 171, 0.08) 0%, transparent 70%);
+      top: -120px;
+      right: -120px;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(217, 4, 41, 0.08) 0%, transparent 70%);
+      bottom: -120px;
+      left: -120px;
+      pointer-events: none;
+    }
+
+    .host-badge {
+      background: var(--black);
+      color: #ffffff;
+      padding: 0.5rem 1.3rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: inline-block;
+      box-shadow: 0 6px 18px rgba(10, 10, 12, 0.15);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.8rem);
+      font-weight: 900;
+      line-height: 1.1;
+      max-width: 950px;
+      margin-bottom: 1.2rem;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+
+    .hero h1 .highlight {
+      background: linear-gradient(90deg, var(--blue), var(--red));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      max-width: 680px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Countdown Timer */
+    .countdown-wrapper {
+      background: #ffffff;
+      border: 2px solid var(--black);
+      padding: 1.8rem 2.5rem;
+      border-radius: 20px;
+      box-shadow: 8px 8px 0px var(--blue);
+      margin-bottom: 2.8rem;
+    }
+
+    .countdown-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--red);
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .countdown {
+      display: flex;
+      gap: 1.3rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .time-box {
+      background: var(--bg-subtle);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem 1.4rem;
+      min-width: 95px;
+    }
+
+    .time-box span {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.3rem;
+      font-weight: 900;
+      color: var(--blue);
+      line-height: 1.1;
+    }
+
+    .time-box small {
+      color: var(--black);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2.8rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-item strong {
+      display: block;
+      font-size: 2rem;
+      font-weight: 900;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--red);
+    }
+
+    .stat-item span {
+      font-size: 0.85rem;
+      color: var(--black);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Section Styling */
+    section {
+      padding: 5.5rem 6%;
+      max-width: 1350px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-header .tag {
+      color: var(--red);
+      font-weight: 800;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+      font-weight: 900;
+      color: var(--black);
+    }
+
+    /* Overview & Format Cards */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .info-card {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border);
+      border-top: 4px solid var(--blue);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .info-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-top-color: var(--red);
+    }
+
+    .stage-badge {
+      display: inline-block;
+      background: rgba(0, 71, 171, 0.1);
+      color: var(--blue);
+      font-weight: 800;
+      font-size: 0.78rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 50px;
+      margin-bottom: 1rem;
+    }
+
+    .info-card h3 {
+      font-size: 1.25rem;
+      color: var(--black);
+      margin-bottom: 0.7rem;
+    }
+
+    .info-card p {
+      color: var(--text-muted);
+      font-size: 0.94rem;
+    }
+
+    /* Teams Grid */
+    .teams-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.3rem;
+    }
+
+    .team-card {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+
+    .team-card:hover {
+      background: var(--bg-card-hover);
+      transform: translateY(-4px);
+      border-color: var(--blue);
+    }
+
+    .team-flag {
+      font-size: 2.2rem;
+      line-height: 1;
+    }
+
+    .team-info h4 {
+      font-size: 1.05rem;
+      color: var(--black);
+      margin-bottom: 0.2rem;
+    }
+
+    .team-info span {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      display: block;
+    }
+
+    .team-card.tbd {
+      border: 1.5px dashed #cbd5e1;
+      background: var(--bg-subtle);
+    }
+
+    /* Venues Filter & Grid */
+    .filter-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: #ffffff;
+      border: 1.5px solid var(--black);
+      color: var(--black);
+      padding: 0.65rem 1.4rem;
+      border-radius: 50px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: inherit;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--blue);
+      color: #ffffff;
+      border-color: var(--blue);
+    }
+
+    .venues-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .venue-card {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .venue-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--red);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .venue-top {
+      padding: 1.6rem;
+    }
+
+    .country-pill {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 0.28rem 0.8rem;
+      border-radius: 50px;
+      display: inline-block;
+      margin-bottom: 0.8rem;
+    }
+
+    .sa { background: rgba(0, 71, 171, 0.12); color: var(--blue); }
+    .zim { background: rgba(217, 4, 41, 0.12); color: var(--red); }
+    .nam { background: rgba(10, 10, 12, 0.1); color: var(--black); }
+
+    .venue-card h3 {
+      font-size: 1.2rem;
+      color: var(--black);
+      margin-bottom: 0.35rem;
+    }
+
+    .venue-city {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .venue-meta {
+      background: var(--bg-subtle);
+      padding: 1rem 1.6rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .venue-meta strong {
+      color: var(--black);
+    }
+
+    /* Key Fixtures Table */
+    .fixtures-box {
+      background: #ffffff;
+      border: 1.5px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow-sm);
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 1.2rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background: var(--black);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #ffffff;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background: #f8fafc;
+    }
+
+    .match-badge {
+      background: rgba(217, 4, 41, 0.1);
+      color: var(--red);
+      padding: 0.3rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--black);
+      text-align: center;
+      padding: 3rem 5%;
+      color: #cbd5e1;
+      font-size: 0.9rem;
+      margin-top: 3rem;
+    }
+
+    footer strong {
+      color: #ffffff;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .time-box {
+        min-width: 75px;
+        padding: 0.8rem 1rem;
+      }
+      .time-box span {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#" class="brand">🏏 CWC <span>2027</span></a>
+    <ul class="nav-links">
+      <li><a href="#overview">Format & Info</a></li>
+      <li><a href="#teams">Teams (14)</a></li>
+      <li><a href="#venues">Venues (12)</a></li>
+      <li><a href="#fixtures">Key Fixtures</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="host-badge">🇿🇦 South Africa • 🇿🇼 Zimbabwe • 🇳🇦 Namibia</div>
+    <h1>ICC Men's Cricket <span class="highlight">World Cup 2027</span></h1>
+    <p>Cricket's biggest ODI spectacle returns to Africa after 24 years. Explore complete tournament info, all 12 iconic stadiums, 14 competing nations, and key match schedules.</p>
+
+    <!-- Live Countdown -->
+    <div class="countdown-wrapper">
+      <div class="countdown-label">⏳ Countdown to Opening Match (2 October 2027)</div>
+      <div class="countdown" id="countdown">
+        <div class="time-box"><span id="days">000</span><small>Days</small></div>
+        <div class="time-box"><span id="hours">00</span><small>Hours</small></div>
+        <div class="time-box"><span id="minutes">00</span><small>Minutes</small></div>
+        <div class="time-box"><span id="seconds">00</span><small>Seconds</small></div>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat-item"><strong>14</strong><span>Teams</span></div>
+      <div class="stat-item"><strong>57</strong><span>Matches</span></div>
+      <div class="stat-item"><strong>12</strong><span>Venues</span></div>
+      <div class="stat-item"><strong>51</strong><span>Days of Cricket</span></div>
+    </div>
+  </header>
+
+  <!-- Tournament Overview & Format -->
+  <section id="overview">
+    <div class="section-header">
+      <span class="tag">Tournament Structure</span>
+      <h2>Full Information & 2027 Format</h2>
+    </div>
+    <div class="info-grid">
+      <div class="info-card">
+        <span class="stage-badge">Stage 1 • Oct 2 – Oct 6</span>
+        <h3>Super Series</h3>
+        <p>The tournament kicks off in Windhoek, Namibia with the 3 lowest-ranked qualified teams playing a round-robin series. The winner advances to the main Group Stage.</p>
+      </div>
+      <div class="info-card">
+        <span class="stage-badge">Stage 2 • Oct 7 – Oct 24</span>
+        <h3>Group Stage (12 Teams)</h3>
+        <p>12 teams are divided into two groups of 6. Each team plays 5 group matches. The top 3 from each group plus the best 4th-placed team advance.</p>
+      </div>
+      <div class="info-card">
+        <span class="stage-badge">Stage 3 • Oct 25 – Nov 14</span>
+        <h3>Super 7 Stage</h3>
+        <p>The 7 surviving teams compete in a single round-robin league consisting of 21 high-stakes matches. The top 4 teams qualify for the Semi-Finals.</p>
+      </div>
+      <div class="info-card">
+        <span class="stage-badge">Stage 4 • Nov 17 – Nov 21</span>
+        <h3>Knockouts & Final</h3>
+        <p>Semi-Final 1 takes place in Cape Town (Nov 17), Semi-Final 2 in Centurion (Nov 18), and the Grand Final at The Wanderers, Johannesburg on Nov 21, 2027.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Participating Teams -->
+  <section id="teams">
+    <div class="section-header">
+      <span class="tag">14 Competing Nations</span>
+      <h2>Qualified & Contending Teams</h2>
+    </div>
+    <div class="teams-grid">
+      <div class="team-card"><div class="team-flag">🇿🇦</div><div class="team-info"><h4>South Africa</h4><span>Co-Host (Automatic)</span></div></div>
+      <div class="team-card"><div class="team-flag">🇿🇼</div><div class="team-info"><h4>Zimbabwe</h4><span>Co-Host (Automatic)</span></div></div>
+      <div class="team-card"><div class="team-flag">🇦🇺</div><div class="team-info"><h4>Australia</h4><span>Defending Champions • ODI Rank</span></div></div>
+      <div class="team-card"><div class="team-flag">🇮🇳</div><div class="team-info"><h4>India</h4><span>Qualified via ICC ODI Rankings</span></div></div>
+      <div class="team-card"><div class="team-flag">🇵🇰</div><div class="team-info"><h4>Pakistan</h4><span>Qualified via ICC ODI Rankings</span></div></div>
+      <div class="team-card"><div class="team-flag">🏴󠁧󠁢󠁥󠁮󠁧󠁿</div><div class="team-info"><h4>England</h4><span>Qualified via ICC ODI Rankings</span></div></div>
+      <div class="team-card"><div class="team-flag">🇳🇿</div><div class="team-info"><h4>New Zealand</h4><span>Qualified via ICC ODI Rankings</span></div></div>
+      <div class="team-card"><div class="team-flag">🇱🇰</div><div class="team-info"><h4>Sri Lanka</h4><span>Qualified via ICC ODI Rankings</span></div></div>
+      <div class="team-card"><div class="team-flag">🇧🇩</div><div class="team-info"><h4>Bangladesh</h4><span>Qualified via ICC ODI Rankings</span></div></div>
+      <div class="team-card"><div class="team-flag">🇦🇫</div><div class="team-info"><h4>Afghanistan</h4><span>Qualified via ICC ODI Rankings</span></div></div>
+      <div class="team-card tbd"><div class="team-flag">🏳️</div><div class="team-info"><h4>Qualifier 1 (TBD)</h4><span>2027 CWC Qualifier (Mar 2027)</span></div></div>
+      <div class="team-card tbd"><div class="team-flag">🏳️</div><div class="team-info"><h4>Qualifier 2 (TBD)</h4><span>2027 CWC Qualifier (Mar 2027)</span></div></div>
+      <div class="team-card tbd"><div class="team-flag">🏳️</div><div class="team-info"><h4>Qualifier 3 (TBD)</h4><span>2027 CWC Qualifier (Mar 2027)</span></div></div>
+      <div class="team-card tbd"><div class="team-flag">🏳️</div><div class="team-info"><h4>Qualifier 4 (TBD)</h4><span>2027 CWC Qualifier (Mar 2027)</span></div></div>
+    </div>
+  </section>
+
+  <!-- Venues Section -->
+  <section id="venues">
+    <div class="section-header">
+      <span class="tag">3 Host Nations • 12 Stadiums</span>
+      <h2>Official Tournament Venues</h2>
+    </div>
+
+    <div class="filter-tabs">
+      <button class="filter-btn active" onclick="filterVenues('all', this)">All Venues (12)</button>
+      <button class="filter-btn" onclick="filterVenues('South Africa', this)">🇿🇦 South Africa (8)</button>
+      <button class="filter-btn" onclick="filterVenues('Zimbabwe', this)">🇿🇼 Zimbabwe (3)</button>
+      <button class="filter-btn" onclick="filterVenues('Namibia', this)">🇳🇦 Namibia (1)</button>
+    </div>
+
+    <div class="venues-grid" id="venuesGrid"></div>
+  </section>
+
+  <!-- Key Fixtures -->
+  <section id="fixtures">
+    <div class="section-header">
+      <span class="tag">Blockbuster Clashes</span>
+      <h2>Headline Fixtures & Knockouts</h2>
+    </div>
+    <div class="fixtures-box">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Match</th>
+            <th>Stage</th>
+            <th>Venue</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>02 Oct 2027</td>
+            <td><strong>Opening Match (QF1 vs QF3)</strong></td>
+            <td><span class="match-badge">Super Series</span></td>
+            <td>Namibia Cricket Ground, Windhoek</td>
+          </tr>
+          <tr>
+            <td>07 Oct 2027</td>
+            <td><strong>India vs Australia</strong></td>
+            <td><span class="match-badge">Group Stage</span></td>
+            <td>Newlands Cricket Ground, Cape Town</td>
+          </tr>
+          <tr>
+            <td>08 Oct 2027</td>
+            <td><strong>Pakistan vs Afghanistan</strong></td>
+            <td><span class="match-badge">Group Stage</span></td>
+            <td>SuperSport Park, Centurion</td>
+          </tr>
+          <tr>
+            <td>09 Oct 2027</td>
+            <td><strong>South Africa vs New Zealand</strong></td>
+            <td><span class="match-badge">Group Stage</span></td>
+            <td>Newlands Cricket Ground, Cape Town</td>
+          </tr>
+          <tr>
+            <td>10 Oct 2027</td>
+            <td><strong>India vs Pakistan</strong></td>
+            <td><span class="match-badge">Group Stage</span></td>
+            <td>Wanderers Stadium, Johannesburg</td>
+          </tr>
+          <tr>
+            <td>22 Oct 2027</td>
+            <td><strong>Australia vs Pakistan</strong></td>
+            <td><span class="match-badge">Group Stage</span></td>
+            <td>Boland Park, Paarl</td>
+          </tr>
+          <tr>
+            <td>17 Nov 2027</td>
+            <td><strong>Semi-Final 1</strong></td>
+            <td><span class="match-badge">Knockout</span></td>
+            <td>Newlands Cricket Ground, Cape Town</td>
+          </tr>
+          <tr>
+            <td>18 Nov 2027</td>
+            <td><strong>Semi-Final 2</strong></td>
+            <td><span class="match-badge">Knockout</span></td>
+            <td>SuperSport Park, Centurion</td>
+          </tr>
+          <tr>
+            <td>21 Nov 2027</td>
+            <td><strong>ICC CWC 2027 Grand Final</strong></td>
+            <td><span class="match-badge">FINAL</span></td>
+            <td>Wanderers Stadium, Johannesburg</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>ICC Men's Cricket World Cup 2027</strong> Fan Portal • South Africa, Zimbabwe & Namibia</p>
+  </footer>
+
+  <script>
+    // Live Countdown to Oct 2, 2027 10:00 UTC+2
+    const targetDate = new Date("2027-10-02T10:00:00+02:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        document.getElementById("countdown").innerHTML = "<h3>The Tournament Has Begun!</h3>";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById("days").textContent = String(days).padStart(3, "0");
+      document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+      document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+      document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // All 12 Official Venues Data
+    const venues = [
+      { name: "Wanderers Stadium", city: "Johannesburg", country: "South Africa", code: "sa", capacity: "34,000", highlight: "Hosts Grand Final" },
+      { name: "Newlands Cricket Ground", city: "Cape Town", country: "South Africa", code: "sa", capacity: "25,000", highlight: "Hosts Semi-Final 1" },
+      { name: "SuperSport Park", city: "Centurion (Tshwane)", country: "South Africa", code: "sa", capacity: "22,000", highlight: "Hosts Semi-Final 2" },
+      { name: "Kingsmead Cricket Ground", city: "Durban", country: "South Africa", code: "sa", capacity: "25,000", highlight: "6 Matches" },
+      { name: "Mangaung Oval", city: "Bloemfontein", country: "South Africa", code: "sa", capacity: "20,000", highlight: "5 Matches" },
+      { name: "St George's Park", city: "Gqeberha", country: "South Africa", code: "sa", capacity: "19,000", highlight: "5 Matches" },
+      { name: "Buffalo Park", city: "KuGompo City (East London)", country: "South Africa", code: "sa", capacity: "16,000", highlight: "4 Matches" },
+      { name: "Boland Park", city: "Paarl", country: "South Africa", code: "sa", capacity: "10,000", highlight: "4 Matches" },
+      { name: "Queens Sports Club", city: "Bulawayo", country: "Zimbabwe", code: "zim", capacity: "12,500", highlight: "Group Stage" },
+      { name: "Harare Sports Club", city: "Harare", country: "Zimbabwe", code: "zim", capacity: "10,000", highlight: "4 Matches" },
+      { name: "Mosi-oa-Tunya Int. Stadium", city: "Victoria Falls", country: "Zimbabwe", code: "zim", capacity: "10,000", highlight: "Brand New Stadium" },
+      { name: "Namibia Cricket Ground", city: "Windhoek", country: "Namibia", code: "nam", capacity: "7,000", highlight: "Opening Super Series" }
+    ];
+
+    const venuesGrid = document.getElementById("venuesGrid");
+
+    function renderVenues(filter) {
+      venuesGrid.innerHTML = "";
+      const filtered = filter === "all" ? venues : venues.filter(v => v.country === filter);
+
+      filtered.forEach(v => {
+        const card = document.createElement("div");
+        card.className = "venue-card";
+        card.innerHTML = `
+          <div class="venue-top">
+            <span class="country-pill ${v.code}">${v.country}</span>
+            <h3>${v.name}</h3>
+            <div class="venue-city">📍 ${v.city}</div>
+          </div>
+          <div class="venue-meta">
+            <span>Capacity: <strong>${v.capacity}</strong></span>
+            <span><strong>${v.highlight}</strong></span>
+          </div>
+        `;
+        venuesGrid.appendChild(card);
+      });
+    }
+
+    function filterVenues(country, btn) {
+      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      renderVenues(country);
+    }
+
+    renderVenues("all");
+  </script>
+</body>
+</html>
